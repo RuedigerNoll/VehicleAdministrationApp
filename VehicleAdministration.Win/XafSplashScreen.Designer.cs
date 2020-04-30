@@ -83,7 +83,7 @@
             this.pcApplicationName.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.pcApplicationName.Appearance.Options.UseBackColor = true;
             this.pcApplicationName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pcApplicationName.ContentImage = global::VehicleAdministration.Win.Properties.Resources.download__1_;
+            this.pcApplicationName.ContentImage = global::VehicleAdministration.Win.Properties.Resources.Moped;
             this.pcApplicationName.Controls.Add(this.labelControl1);
             this.pcApplicationName.Controls.Add(this.labelSubtitle);
             this.pcApplicationName.Controls.Add(this.labelApplicationName);

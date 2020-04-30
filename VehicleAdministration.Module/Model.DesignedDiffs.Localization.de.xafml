@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Fahrzeugverwaltung">
-  <BOModel>
-    <Class Name="Makler.Module.BusinessObjects.FuelType" Caption="Spritsorte" />
-    <Class Name="Makler.Module.BusinessObjects.Maintenance" Caption="Wartung">
-      <OwnMembers>
+  <BOModel Id="BOModel">
+    <Class Name="VehicleAdministration.Module.BusinessObjects.Maintenance">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Types" Caption="Wartungsart" />
+      </OwnMembers>
+    </Class>
+    <Class Name="VehicleAdministration.Module.BusinessObjects.FuelType" Caption="Spritsorte" />
+    <Class Name="VehicleAdministration.Module.BusinessObjects.Maintenance" Caption="Wartung">
+      <OwnMembers Id="OwnMembers">
         <Member Name="Costs" Caption="Kosten" />
         <Member Name="Date" Caption="Datum" />
         <Member Name="Notice" Caption="Notiz" />
@@ -11,19 +16,19 @@
         <Member Name="Vehicle" Caption="Fahrzeug" />
       </OwnMembers>
     </Class>
-    <Class Name="Makler.Module.BusinessObjects.MaintenanceDetail" Caption="Wartungsdetails">
-      <OwnMembers>
+    <Class Name="VehicleAdministration.Module.BusinessObjects.MaintenanceDetail" Caption="Wartungsdetails">
+      <OwnMembers Id="OwnMembers">
         <Member Name="Costs" Caption="Kosten" />
         <Member Name="MaintenanceType" Caption="Wartungsart" />
       </OwnMembers>
     </Class>
-    <Class Name="Makler.Module.BusinessObjects.MaintenanceType" Caption="Wartungsart">
-      <OwnMembers>
+    <Class Name="VehicleAdministration.Module.BusinessObjects.MaintenanceType" Caption="Wartungsart">
+      <OwnMembers Id="OwnMembers">
         <Member Name="Costs" Caption="Kosten" />
       </OwnMembers>
     </Class>
-    <Class Name="Makler.Module.BusinessObjects.Refuelling" Caption="Tankstop">
-      <OwnMembers>
+    <Class Name="VehicleAdministration.Module.BusinessObjects.Refuelling" Caption="Tankstop">
+      <OwnMembers Id="OwnMembers">
         <Member Name="Costs" Caption="Kosten" />
         <Member Name="Date" Caption="Datum" />
         <Member Name="FuelType" Caption="Spritsorte" />
@@ -35,8 +40,8 @@
         <Member Name="Vehicle" Caption="Fahrzeug" />
       </OwnMembers>
     </Class>
-    <Class Name="Makler.Module.BusinessObjects.Vehicle" Caption="Fahrzeug">
-      <OwnMembers>
+    <Class Name="VehicleAdministration.Module.BusinessObjects.Vehicle" Caption="Fahrzeug">
+      <OwnMembers Id="OwnMembers">
         <Member Name="Brand" Caption="Marke" />
         <Member Name="IdentificationNumber" Caption="Fahrgestellnummer" />
         <Member Name="LicencePlate" Caption="Kennzeichen" />

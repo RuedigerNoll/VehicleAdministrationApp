@@ -333,6 +333,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExpressApp.ico" />
+    <None Include="Resources\Moped.jpg" />
     <None Include="Resources\download %281%29.jpg" />
     <None Include="Resources\download.jpg" />
     <None Include="Resources\Baloon.jpg" />
@@ -365,7 +366,6 @@
     <Compile Include="XafSplashScreen.Designer.cs">
       <DependentUpon>XafSplashScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
