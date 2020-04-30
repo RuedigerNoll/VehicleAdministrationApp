@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="Vehicle Administration" PreferredLanguage="de" Logo="" Copyright="Rüdiger Noll" Company="Borchward">
+  <NavigationItems NavigationStyle="Accordion">
+    <Items>
+      <Item Id="Costs_NavigationItem" Caption="Costs" Index="0" ImageName="Business_Euro" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Maintenance_ListView" ViewId="Maintenance_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="Refuelling_ListView" ViewId="Refuelling_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Configurations_NavigationItem" Caption="Configurations" Index="1" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="FuelType_ListView" ViewId="FuelType_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="MaintenanceType_ListView" ViewId="MaintenanceType_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="Vehicle_ListView" ViewId="Vehicle_ListView" ObjectKey="" ImageName="BO_Vendor" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Reports" Index="2" />
+      <Item Id="KPI" Index="3" />
+      <Item Id="Default" Index="4">
+        <Items>
+          <Item Id="FuelType_ListView" Removed="True" />
+          <Item Id="Maintenance_ListView" Removed="True" />
+          <Item Id="MaintenanceType_ListView" Removed="True" />
+          <Item Id="Refuelling_ListView" Removed="True" />
+          <Item Id="Vehicle_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="NavigationItem_Administration" Caption="Administration" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="ModelDifference_ListView" ImageName="Action_EditModel" ViewId="ModelDifference_ListView" Caption="User Settings" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="19.2.5.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="KpiDefinition_ListView">
+      <Columns>
+        <ColumnInfo Id="Criteria" Width="48" />
+        <ColumnInfo Id="Expression" Width="48" />
+        <ColumnInfo Id="Name" Width="297" SortOrder="Descending" />
+        <ColumnInfo Id="Active" Index="1" Width="80" />
+        <ColumnInfo Id="TargetObjectType" Index="2" Width="48" />
+        <ColumnInfo Id="GreenZone" Index="3" Width="34" />
+        <ColumnInfo Id="RedZone" Index="4" Width="34" />
+        <ColumnInfo Id="Range" Index="5" Width="48" />
+        <ColumnInfo Id="Compare" Index="6" Width="34" />
+        <ColumnInfo Id="RangeToCompare" Index="7" Width="48" />
+        <ColumnInfo Id="MeasurementFrequency" Index="8" Width="48" />
+        <ColumnInfo Id="Direction" Index="9" Width="48" />
+        <ColumnInfo Id="Period" Index="10" Width="48" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Maintenance_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="18.863049095607234">
+            <LayoutGroup Id="Maintenance" RelativeSize="100">
+              <LayoutGroup Id="Maintenance_col1" RelativeSize="49.934296977660971">
+                <LayoutItem Id="Vehicle" ViewItem="Vehicle" Index="0" RelativeSize="36.734693877551024" IsNewNode="True" />
+                <LayoutItem Id="Name" Index="1" RelativeSize="26.530612244897959" />
+                <LayoutItem Id="Costs" Index="2" RelativeSize="20.967741935483872" Removed="True" />
+                <LayoutItem Id="SpeedoMeter" Index="2" RelativeSize="36.734693877551024" />
+              </LayoutGroup>
+              <LayoutGroup Id="Maintenance_col2" RelativeSize="50.065703022339029">
+                <LayoutItem Id="Date" RelativeSize="36.734693877551024" />
+                <LayoutItem Id="Costs" ViewItem="Costs" Index="1" RelativeSize="26.530612244897959" IsNewNode="True" />
+                <LayoutItem Id="Notice" RelativeSize="36.734693877551024" Index="2" />
+                <LayoutItem Id="Vehicle" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="ReportDataV2_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ReportDataV2">
+              <LayoutItem Id="DisplayName" ViewItem="DisplayName" Index="0" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="ParametersObjectType" ViewItem="ParametersObjectType" Index="1" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="DataTypeCaption" ViewItem="DataTypeCaption" Index="2" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="IsInplaceReport" Index="3" ViewItem="IsInplaceReport" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

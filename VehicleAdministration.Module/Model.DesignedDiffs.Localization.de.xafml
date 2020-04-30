@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="Fahrzeugverwaltung">
+  <BOModel>
+    <Class Name="Makler.Module.BusinessObjects.FuelType" Caption="Spritsorte" />
+    <Class Name="Makler.Module.BusinessObjects.Maintenance" Caption="Wartung">
+      <OwnMembers>
+        <Member Name="Costs" Caption="Kosten" />
+        <Member Name="Date" Caption="Datum" />
+        <Member Name="Notice" Caption="Notiz" />
+        <Member Name="SpeedoMeter" Caption="Tachostand" />
+        <Member Name="Vehicle" Caption="Fahrzeug" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Makler.Module.BusinessObjects.MaintenanceDetail" Caption="Wartungsdetails">
+      <OwnMembers>
+        <Member Name="Costs" Caption="Kosten" />
+        <Member Name="MaintenanceType" Caption="Wartungsart" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Makler.Module.BusinessObjects.MaintenanceType" Caption="Wartungsart">
+      <OwnMembers>
+        <Member Name="Costs" Caption="Kosten" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Makler.Module.BusinessObjects.Refuelling" Caption="Tankstop">
+      <OwnMembers>
+        <Member Name="Costs" Caption="Kosten" />
+        <Member Name="Date" Caption="Datum" />
+        <Member Name="FuelType" Caption="Spritsorte" />
+        <Member Name="FullRefuelling" Caption="Vollgetankt" />
+        <Member Name="Litres" Caption="Liter" />
+        <Member Name="Notice" Caption="Notiz" />
+        <Member Name="PricePerLitre" Caption="Preis pro Liter" />
+        <Member Name="SpeedoMeter" Caption="Tachometerstand" />
+        <Member Name="Vehicle" Caption="Fahrzeug" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Makler.Module.BusinessObjects.Vehicle" Caption="Fahrzeug">
+      <OwnMembers>
+        <Member Name="Brand" Caption="Marke" />
+        <Member Name="IdentificationNumber" Caption="Fahrgestellnummer" />
+        <Member Name="LicencePlate" Caption="Kennzeichen" />
+        <Member Name="Maintenances" Caption="Wartungen" />
+        <Member Name="Model" Caption="Modell" />
+        <Member Name="Notice" Caption="Notiz" />
+        <Member Name="Power" Caption="Leistung/kW" />
+        <Member Name="Refuellings" Caption="Tankstops" />
+        <Member Name="YearOfConstruction" Caption="Baujahr" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Costs_NavigationItem" Caption="Aufwendungen" />
+      <Item Id="Configurations_NavigationItem" Caption="Stammdaten" />
+      <Item Id="Default" Caption="Benutzer" />
+    </Items>
+  </NavigationItems>
+  <Views>
+    <DetailView Id="Maintenance_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Maintenance" Caption="Wartungsdetails" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Refuelling_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Refuelling" Caption="Details" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
