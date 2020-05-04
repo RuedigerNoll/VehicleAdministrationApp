@@ -1,6 +1,6 @@
-﻿;#DropDB MaklerEasyTest
+﻿;#DropDB VehicleAdministrationEasyTest
 
-#Application MaklerWin
+#Application VehicleAdministrationWin
 
 *FillForm
  User Name = Admin

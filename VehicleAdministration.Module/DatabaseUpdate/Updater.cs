@@ -9,6 +9,11 @@ using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.EF;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
+using VehicleAdministration.Module.BusinessObjects;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.IO;
+using System.Text;
 
 namespace VehicleAdministration.Module.DatabaseUpdate {
     // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Updating.ModuleUpdater
@@ -18,12 +23,7 @@ namespace VehicleAdministration.Module.DatabaseUpdate {
         }
         public override void UpdateDatabaseAfterUpdateSchema() {
             base.UpdateDatabaseAfterUpdateSchema();
-            //string name = "MyName";
-            //EntityObject1 theObject = ObjectSpace.FindObject<EntityObject1>(CriteriaOperator.Parse("Name=?", name));
-            //if(theObject == null) {
-            //    theObject = ObjectSpace.CreateObject<EntityObject1>();
-            //    theObject.Name = name;
-            //}
+           
             PermissionPolicyUser sampleUser = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "User"));
             if(sampleUser == null) {
                 sampleUser = ObjectSpace.CreateObject<PermissionPolicyUser>();
@@ -48,8 +48,61 @@ namespace VehicleAdministration.Module.DatabaseUpdate {
             }
             adminRole.IsAdministrative = true;
 			userAdmin.Roles.Add(adminRole);
+
+            CreateConfigurations(ObjectSpace, @"DatabaseUpdate\MaintenanceTypes.json");
+            CreateVehicles(ObjectSpace, @"DatabaseUpdate\Vehicles.json");
+
             ObjectSpace.CommitChanges(); //This line persists created object(s).
         }
+
+
+        private void CreateConfigurations(IObjectSpace objectSpace, string jsonFileName)
+        {
+            var filePath = Path.Combine(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory), jsonFileName);
+            var json = File.ReadAllText(filePath, Encoding.GetEncoding(1252));
+
+            var listOfConfigurations = JsonConvert.DeserializeObject<IList<MaintenanceType>>(json);
+
+            foreach (var item in listOfConfigurations)
+            {
+                var result = objectSpace.FindObject<MaintenanceType>(CriteriaOperator.Parse("Name = ?", item.Name));
+                if (result != null)
+                    continue;
+
+                var configuration = objectSpace.CreateObject<MaintenanceType>();
+                configuration.Name = item.Name;
+            }
+        }
+
+        private void CreateVehicles(IObjectSpace objectSpace, string jsonFileName)
+        {
+            var filePath = Path.Combine(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory), jsonFileName);
+            var json = File.ReadAllText(filePath, Encoding.GetEncoding(1252));
+
+            var listOfConfigurations = JsonConvert.DeserializeObject<IList<Vehicle>>(json);
+
+            foreach (var item in listOfConfigurations)
+            {
+                var result = objectSpace.FindObject<Vehicle>(CriteriaOperator.Parse("Name = ?", item.Name));
+                if (result != null)
+                    continue;
+
+                var configuration = objectSpace.CreateObject<Vehicle>();
+                configuration.Name = item.Name;
+                configuration.Brand = item.Brand;
+                configuration.IdentificationNumber = item.IdentificationNumber;
+                configuration.LicencePlate = item.LicencePlate;
+                configuration.Model = item.Model;
+                configuration.Motor = item.Motor;
+                configuration.Notice = item.Notice;
+                configuration.Power = item.Power;
+                configuration.TareWeight = item.TareWeight;
+                configuration.WheelSizeFront = item.WheelSizeFront;
+                configuration.WheelSizeRear = item.WheelSizeRear;
+                configuration.YearOfConstruction = item.YearOfConstruction;
+            }
+        }
+
         public override void UpdateDatabaseBeforeUpdateSchema() {
             base.UpdateDatabaseBeforeUpdateSchema();
         }

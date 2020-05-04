@@ -1,5 +1,5 @@
 ﻿namespace VehicleAdministration.Win {
-    partial class MaklerWindowsFormsApplication {
+    partial class VehicleAdministrationWindowsFormsApplication {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -25,8 +25,8 @@
         private void InitializeComponent() {
             this.module1 = new DevExpress.ExpressApp.SystemModule.SystemModule();
             this.module2 = new DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule();
-            this.module3 = new VehicleAdministration.Module.MaklerModule();
-            this.module4 = new VehicleAdministration.Module.Win.MaklerWindowsFormsModule();
+            this.module3 = new VehicleAdministration.Module.VehicleAdministrationModule();
+            this.module4 = new VehicleAdministration.Module.Win.VehicleAdministrationWindowsFormsModule();
             this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();
             this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
             this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
@@ -79,9 +79,9 @@
             this.reportsModuleV2.ShowAdditionalNavigation = false;
             this.reportsModuleV2.ReportStoreMode = DevExpress.ExpressApp.ReportsV2.ReportStoreModes.XML;
             // 
-            // MaklerWindowsFormsApplication
+            // VehicleAdministrationWindowsFormsApplication
             // 
-            this.ApplicationName = "Makler";
+            this.ApplicationName = "VehicleAdministration";
             this.CheckCompatibilityType = DevExpress.ExpressApp.CheckCompatibilityType.DatabaseSchema;
             this.Modules.Add(this.module1);
             this.Modules.Add(this.module2);
@@ -110,8 +110,8 @@
             this.Modules.Add(this.validationModule);
             this.Modules.Add(this.validationWindowsFormsModule);
             this.UseOldTemplates = false;
-            this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.MaklerWindowsFormsApplication_DatabaseVersionMismatch);
-            this.CustomizeLanguagesList += new System.EventHandler<DevExpress.ExpressApp.CustomizeLanguagesListEventArgs>(this.MaklerWindowsFormsApplication_CustomizeLanguagesList);
+            this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.VehicleAdministrationWindowsFormsApplication_DatabaseVersionMismatch);
+            this.CustomizeLanguagesList += new System.EventHandler<DevExpress.ExpressApp.CustomizeLanguagesListEventArgs>(this.VehicleAdministrationWindowsFormsApplication_CustomizeLanguagesList);
 
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -121,8 +121,8 @@
 
         private DevExpress.ExpressApp.SystemModule.SystemModule module1;
         private DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule module2;
-        private VehicleAdministration.Module.MaklerModule module3;
-        private VehicleAdministration.Module.Win.MaklerWindowsFormsModule module4;
+        private VehicleAdministration.Module.VehicleAdministrationModule module3;
+        private VehicleAdministration.Module.Win.VehicleAdministrationWindowsFormsModule module4;
         private DevExpress.ExpressApp.Security.SecurityModule securityModule1;
         private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;
         private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;

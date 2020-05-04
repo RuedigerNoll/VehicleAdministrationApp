@@ -20,18 +20,18 @@ using DevExpress.ExpressApp.ReportsV2;
 
 namespace VehicleAdministration.Module {
     // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ModuleBase.
-    public sealed partial class MaklerModule : ModuleBase {
-        static MaklerModule() {
+    public sealed partial class VehicleAdministrationModule : ModuleBase {
+        static VehicleAdministrationModule() {
             DevExpress.Data.Linq.CriteriaToEFExpressionConverter.SqlFunctionsType = typeof(System.Data.Entity.SqlServer.SqlFunctions);
 			DevExpress.Data.Linq.CriteriaToEFExpressionConverter.EntityFunctionsType = typeof(System.Data.Entity.DbFunctions);
 			DevExpress.ExpressApp.SystemModule.ResetViewSettingsController.DefaultAllowRecreateView = false;
             // Uncomment this code to delete and recreate the database each time the data model has changed.
             // Do not use this code in a production environment to avoid data loss.
             // #if DEBUG
-            // Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MaklerDbContext>());
+            // Database.SetInitializer(new DropCreateDatabaseIfModelChanges<VehicleAdministrationDbContext>());
             // #endif 
         }
-        public MaklerModule() {
+        public VehicleAdministrationModule() {
             InitializeComponent();
 			DevExpress.ExpressApp.Kpi.KpiModule.UsedExportedTypes = DevExpress.Persistent.Base.UsedExportedTypes.Custom;
 			DevExpress.ExpressApp.Security.SecurityModule.UsedExportedTypes = DevExpress.Persistent.Base.UsedExportedTypes.Custom;

@@ -27,7 +27,7 @@ namespace VehicleAdministration.Win {
                 Tracing.LocalUserAppDataPath = Application.LocalUserAppDataPath;
             }
             Tracing.Initialize();
-            MaklerWindowsFormsApplication winApplication = new MaklerWindowsFormsApplication();
+            VehicleAdministrationWindowsFormsApplication winApplication = new VehicleAdministrationWindowsFormsApplication();
 			SecurityStrategy security = (SecurityStrategy)winApplication.Security;
             security.RegisterEFAdapterProviders();
             if(ConfigurationManager.ConnectionStrings["ConnectionString"] != null) {

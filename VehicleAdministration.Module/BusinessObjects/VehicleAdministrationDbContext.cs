@@ -14,21 +14,21 @@ using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
 using DevExpress.Persistent.BaseImpl.EF.Kpi;
 
 namespace VehicleAdministration.Module.BusinessObjects {
-	public class MaklerContextInitializer : DbContextTypesInfoInitializerBase {
+	public class VehicleAdministrationContextInitializer : DbContextTypesInfoInitializerBase {
 		protected override DbContext CreateDbContext() {
-			DbContextInfo contextInfo = new DbContextInfo(typeof(MaklerDbContext), new DbProviderInfo(providerInvariantName: "System.Data.SqlClient", providerManifestToken: "2008"));
+			DbContextInfo contextInfo = new DbContextInfo(typeof(VehicleAdministrationDbContext), new DbProviderInfo(providerInvariantName: "System.Data.SqlClient", providerManifestToken: "2008"));
             return contextInfo.CreateInstance();
 		}
 	}
-	[TypesInfoInitializer(typeof(MaklerContextInitializer))]
-	public class MaklerDbContext : DbContext {
-		public MaklerDbContext(String connectionString)
+	[TypesInfoInitializer(typeof(VehicleAdministrationContextInitializer))]
+	public class VehicleAdministrationDbContext : DbContext {
+		public VehicleAdministrationDbContext(String connectionString)
 			: base(connectionString) {
 		}
-		public MaklerDbContext(DbConnection connection)
+		public VehicleAdministrationDbContext(DbConnection connection)
 			: base(connection, false) {
 		}
-		public MaklerDbContext() {
+		public VehicleAdministrationDbContext() {
 		}
 		public DbSet<ModuleInfo> ModulesInfo { get; set; }
 	    public DbSet<PermissionPolicyRole> Roles { get; set; }

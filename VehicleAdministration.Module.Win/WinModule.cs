@@ -17,7 +17,7 @@ using DevExpress.Persistent.BaseImpl.EF;
 namespace VehicleAdministration.Module.Win {
     [ToolboxItemFilter("Xaf.Platform.Win")]
     // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ModuleBase.
-    public sealed partial class MaklerWindowsFormsModule : ModuleBase {
+    public sealed partial class VehicleAdministrationWindowsFormsModule : ModuleBase {
         //private void Application_CreateCustomModelDifferenceStore(Object sender, CreateCustomModelDifferenceStoreEventArgs e) {
         //    e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), true, "Win");
         //    e.Handled = true;
@@ -26,7 +26,7 @@ namespace VehicleAdministration.Module.Win {
             e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), false, "Win");
             e.Handled = true;
         }
-        public MaklerWindowsFormsModule() {
+        public VehicleAdministrationWindowsFormsModule() {
             InitializeComponent();
         }
         public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {

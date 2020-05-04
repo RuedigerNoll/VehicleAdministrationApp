@@ -3,18 +3,18 @@
 	<Applications>
 		<!-- Win -->
 		<Application
-			Name="MaklerWin"
-			FileName="[WinAppBin]\Makler.Win.exe"
+			Name="VehicleAdministrationWin"
+			FileName="[WinAppBin]\VehicleAdministration.Win.exe"
 			AdapterAssemblyName="[WinAdapterAssemblyName]"
 			CommunicationPort="4100"/>
 	</Applications>
 	<TestDatabases>
-		<Database xsi:type="TestMSSQLDatabase" Server="(localdb)\mssqllocaldb" DBName="MaklerEasyTest"/>
+		<Database xsi:type="TestMSSQLDatabase" Server="(localdb)\mssqllocaldb" DBName="VehicleAdministrationEasyTest"/>
 	</TestDatabases>
 
 	<Aliases>
 		<Alias Name="DomainUserName" Value="%USERDOMAIN%\%USERNAME%" />
 		<Alias Name="WinAdapterAssemblyName" Value="DevExpress.ExpressApp.EasyTest.WinAdapter.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-		<Alias Name="WinAppBin" Value="[ConfigPath]\..\..\Makler.Win\Bin\EasyTest" />
+		<Alias Name="WinAppBin" Value="[ConfigPath]\..\..\VehicleAdministration.Win\Bin\EasyTest" />
 	</Aliases>
 </Options>

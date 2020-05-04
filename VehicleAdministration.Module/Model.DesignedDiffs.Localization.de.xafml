@@ -1,14 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Fahrzeugverwaltung">
-  <BOModel Id="BOModel">
+  <BOModel>
     <Class Name="VehicleAdministration.Module.BusinessObjects.Maintenance">
       <OwnMembers Id="OwnMembers">
         <Member Name="Types" Caption="Wartungsart" />
       </OwnMembers>
     </Class>
+    <Class Name="VehicleAdministration.Module.BusinessObjects.MaintenanceType">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Costs" Caption="Kosten" />
+      </OwnMembers>
+    </Class>
     <Class Name="VehicleAdministration.Module.BusinessObjects.FuelType" Caption="Spritsorte" />
     <Class Name="VehicleAdministration.Module.BusinessObjects.Maintenance" Caption="Wartung">
-      <OwnMembers Id="OwnMembers">
+      <OwnMembers>
         <Member Name="Costs" Caption="Kosten" />
         <Member Name="Date" Caption="Datum" />
         <Member Name="Notice" Caption="Notiz" />
@@ -17,18 +22,14 @@
       </OwnMembers>
     </Class>
     <Class Name="VehicleAdministration.Module.BusinessObjects.MaintenanceDetail" Caption="Wartungsdetails">
-      <OwnMembers Id="OwnMembers">
+      <OwnMembers>
         <Member Name="Costs" Caption="Kosten" />
         <Member Name="MaintenanceType" Caption="Wartungsart" />
       </OwnMembers>
     </Class>
-    <Class Name="VehicleAdministration.Module.BusinessObjects.MaintenanceType" Caption="Wartungsart">
-      <OwnMembers Id="OwnMembers">
-        <Member Name="Costs" Caption="Kosten" />
-      </OwnMembers>
-    </Class>
+    <Class Name="VehicleAdministration.Module.BusinessObjects.MaintenanceType" Caption="Wartungsart" />
     <Class Name="VehicleAdministration.Module.BusinessObjects.Refuelling" Caption="Tankstop">
-      <OwnMembers Id="OwnMembers">
+      <OwnMembers>
         <Member Name="Costs" Caption="Kosten" />
         <Member Name="Date" Caption="Datum" />
         <Member Name="FuelType" Caption="Spritsorte" />
@@ -41,7 +42,7 @@
       </OwnMembers>
     </Class>
     <Class Name="VehicleAdministration.Module.BusinessObjects.Vehicle" Caption="Fahrzeug">
-      <OwnMembers Id="OwnMembers">
+      <OwnMembers>
         <Member Name="Brand" Caption="Marke" />
         <Member Name="IdentificationNumber" Caption="Fahrgestellnummer" />
         <Member Name="LicencePlate" Caption="Kennzeichen" />
@@ -50,6 +51,9 @@
         <Member Name="Notice" Caption="Notiz" />
         <Member Name="Power" Caption="Leistung/kW" />
         <Member Name="Refuellings" Caption="Tankstops" />
+        <Member Name="TareWeight" Caption="Leergewicht" />
+        <Member Name="WheelSizeFront" Caption="Radgröße vorne" />
+        <Member Name="WheelSizeRear" Caption="Radgröße hinten" />
         <Member Name="YearOfConstruction" Caption="Baujahr" />
       </OwnMembers>
     </Class>

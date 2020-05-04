@@ -1,5 +1,5 @@
 ﻿namespace VehicleAdministration.Module.Win {
-    partial class MaklerWindowsFormsModule {
+    partial class VehicleAdministrationWindowsFormsModule {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -24,9 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             // 
-            // MaklerWindowsFormsModule
+            // VehicleAdministrationWindowsFormsModule
             // 
-            this.RequiredModuleTypes.Add(typeof(VehicleAdministration.Module.MaklerModule));
+            this.RequiredModuleTypes.Add(typeof(VehicleAdministration.Module.VehicleAdministrationModule));
             this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Chart.Win.ChartWindowsFormsModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Dashboards.Win.DashboardsWindowsFormsModule));

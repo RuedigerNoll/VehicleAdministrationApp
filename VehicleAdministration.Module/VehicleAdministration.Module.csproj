@@ -131,6 +131,9 @@
     <Reference Include="mscorlib">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -169,6 +172,7 @@
     <Compile Include="BusinessObjects\Reminder.cs" />
     <Compile Include="BusinessObjects\Vehicle.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
+    <Compile Include="INameableObject.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -182,11 +186,18 @@
     <EmbeddedResource Include="Module.resx">
       <DependentUpon>Module.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BusinessObjects\ReadMe.txt" />
     <None Include="Controllers\ReadMe.txt" />
+    <None Include="DatabaseUpdate\MaintenanceTypes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="DatabaseUpdate\ReadMe.txt" />
+    <None Include="DatabaseUpdate\Vehicles.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Images\ReadMe.txt" />
     <EmbeddedResource Include="Model.DesignedDiffs.Localization.de.xafml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
@@ -196,16 +207,21 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FunctionalTests\config.xml" />
+    <None Include="FunctionalTests\config.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="FunctionalTests\sample.ets" />
     <None Include="FunctionalTests\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.configuration" />
-    <Compile Include="BusinessObjects\MaklerDbContext.cs" />
+    <Compile Include="BusinessObjects\VehicleAdministrationDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Welcome.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Update\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

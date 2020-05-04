@@ -22,9 +22,7 @@ namespace VehicleAdministration.Module.BusinessObjects
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
         public int Id { get; set; }
-
         public string Name { get; set; }
-
         public string IdentificationNumber { get; set; }
 
         public DateTime? YearOfConstruction { get; set; }
@@ -39,6 +37,10 @@ namespace VehicleAdministration.Module.BusinessObjects
 
         public string LicencePlate { get; set; }
 
+        public string WheelSizeRear { get; set; }
+        public string WheelSizeFront { get; set; }
+
+        public int TareWeight { get; set; }
         public string Notice { get; set; }
         public virtual IList<Maintenance> Maintenances { get; set; }
 

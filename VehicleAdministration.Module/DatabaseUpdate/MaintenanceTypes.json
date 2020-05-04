@@ -1,0 +1,65 @@
+[
+  {
+    "Name": "Achsvermessung"
+  },
+  {
+    "Name": "Autowäsche"
+  },
+  {
+    "Name": "Batterie"
+  },
+  {
+    "Name": "Bremsen hinten"
+  },
+  {
+    "Name": "Bremsen vorne"
+  },
+  {
+    "Name": "Frostschutz"
+  },
+  {
+    "Name": "Inspektion"
+  },
+  {
+    "Name": "Kraftstofffilter"
+  },
+  {
+    "Name": "Ölkontrolle"
+  },
+  {
+    "Name": "Ölwechsel"
+  },
+  {
+    "Name": "Reifenkontrolle"
+  },
+  {
+    "Name": "Reifenwechsel hinten"
+  },
+  {
+    "Name": "Reifenwechsel vorne"
+  },
+  {
+    "Name": "Reifenwechsel komplett"
+  },
+  {
+    "Name": "Reinigung"
+  },
+  {
+    "Name": "Reparatur"
+  },
+  {
+    "Name": "Scheibenwischer"
+  },
+  {
+    "Name": "Scheibenwischerwasser"
+  },
+  {
+    "Name": "TÜV"
+  },
+  {
+    "Name": "Versicherung"
+  },
+  {
+    "Name": "Zulassung"
+  }
+]

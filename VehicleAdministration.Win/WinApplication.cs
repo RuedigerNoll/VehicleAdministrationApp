@@ -11,9 +11,9 @@ using System.Data.Common;
 
 namespace VehicleAdministration.Win {
     // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Win.WinApplication._members
-    public partial class MaklerWindowsFormsApplication : WinApplication {
+    public partial class VehicleAdministrationWindowsFormsApplication : WinApplication {
         #region Default XAF configuration options (https://www.devexpress.com/kb=T501418)
-        static MaklerWindowsFormsApplication() {
+        static VehicleAdministrationWindowsFormsApplication() {
             DevExpress.Persistent.Base.PasswordCryptographer.EnableRfc2898 = true;
             DevExpress.Persistent.Base.PasswordCryptographer.SupportLegacySha512 = false;
 			DevExpress.ExpressApp.Utils.ImageLoader.Instance.UseSvgImages = true;
@@ -26,26 +26,26 @@ namespace VehicleAdministration.Win {
 			ExecuteStartupLogicBeforeClosingLogonWindow = true;
         }
         #endregion
-        public MaklerWindowsFormsApplication() {
+        public VehicleAdministrationWindowsFormsApplication() {
             InitializeComponent();
 			InitializeDefaults();
         }
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args) {
 			if(args.Connection != null) {
-				args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(typeof(MaklerDbContext), TypesInfo, null, (DbConnection)args.Connection));
+				args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(typeof(VehicleAdministrationDbContext), TypesInfo, null, (DbConnection)args.Connection));
 			}
 			else {
-				args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(typeof(MaklerDbContext), TypesInfo, null, args.ConnectionString));
+				args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(typeof(VehicleAdministrationDbContext), TypesInfo, null, args.ConnectionString));
 			}
             args.ObjectSpaceProviders.Add(new NonPersistentObjectSpaceProvider(TypesInfo, null));
         }
-        private void MaklerWindowsFormsApplication_CustomizeLanguagesList(object sender, CustomizeLanguagesListEventArgs e) {
+        private void VehicleAdministrationWindowsFormsApplication_CustomizeLanguagesList(object sender, CustomizeLanguagesListEventArgs e) {
             string userLanguageName = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
             if(userLanguageName != "en-US" && e.Languages.IndexOf(userLanguageName) == -1) {
                 e.Languages.Add(userLanguageName);
             }
         }
-        private void MaklerWindowsFormsApplication_DatabaseVersionMismatch(object sender, DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs e) {
+        private void VehicleAdministrationWindowsFormsApplication_DatabaseVersionMismatch(object sender, DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs e) {
 #if EASYTEST
             e.Updater.Update();
             e.Handled = true;

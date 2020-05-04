@@ -1,5 +1,5 @@
 ﻿namespace VehicleAdministration.Module {
-	partial class MaklerModule {
+	partial class VehicleAdministrationModule {
 		/// <summary> 
 		/// Required designer variable.
 		/// </summary>
@@ -24,7 +24,7 @@
 		/// </summary>
 		private void InitializeComponent() {
 			// 
-			// MaklerModule
+			// VehicleAdministrationModule
 			// 
 			this.AdditionalExportedTypes.Add(typeof(DevExpress.Persistent.BaseImpl.EF.PermissionPolicy.PermissionPolicyUser));
 			this.AdditionalExportedTypes.Add(typeof(DevExpress.Persistent.BaseImpl.EF.PermissionPolicy.PermissionPolicyRole));

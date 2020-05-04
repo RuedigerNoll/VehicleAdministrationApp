@@ -22,6 +22,7 @@ namespace VehicleAdministration.Module.BusinessObjects
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
         public int Id { get; set; }
+
         public string Name { get; set; }
         public virtual IList<MaintenanceDetail> Details { get; set; } 
 
@@ -29,10 +30,11 @@ namespace VehicleAdministration.Module.BusinessObjects
 
         public int SpeedoMeter { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         public string Notice { get; set; }
 
         public virtual Vehicle Vehicle { get; set; }
+        
     }
 }
