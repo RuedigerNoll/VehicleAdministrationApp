@@ -18,6 +18,7 @@ namespace VehicleAdministration.Module.BusinessObjects
         [VisibleInListView(false)]
         public int Id { get; set; }
         public string Name { get; set; }
+        
     }
 
 }

@@ -16,8 +16,11 @@ namespace VehicleAdministration.Module.BusinessObjects
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
         public int Id { get; set; }
-        public MaintenanceType MaintenanceType { get; set; }
+        
+        public virtual MaintenanceType MaintenanceType { get; set; }
 
         public decimal? Costs { get; set; }
+
+        public virtual Maintenance Maintenance { get; set; }
     }
 }
