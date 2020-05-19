@@ -5,16 +5,19 @@ using System.Text.Json.Serialization;
 
 namespace VehicleAdministration.Module.BusinessObjects
 {
-    [Table("FuelTypes")]
+    [Table("SparePart")]
 
     [NavigationItem]
-    public class FuelType
+    public class SparePart
     {
         [Key]
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
         [JsonIgnore]
         public int Id { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
+        public virtual SparePartCategory Category { get; set; }
         public string Name { get; set; }
+        public decimal Price { get; set; }    
     }
 }

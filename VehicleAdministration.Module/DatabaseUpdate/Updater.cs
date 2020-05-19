@@ -1,31 +1,33 @@
-﻿using System;
-using System.Linq;
+﻿using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
-using DevExpress.Data.Filtering;
-using DevExpress.Persistent.Base;
-using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp.Security;
-using DevExpress.ExpressApp.SystemModule;
-using DevExpress.ExpressApp.EF;
+using DevExpress.ExpressApp.Updating;
+using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
-using VehicleAdministration.Module.BusinessObjects;
+using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using System.IO;
 using System.Text;
+using System.Text.Json;
+using VehicleAdministration.Module.BusinessObjects;
 
-namespace VehicleAdministration.Module.DatabaseUpdate {
+namespace VehicleAdministration.Module.DatabaseUpdate
+{
     // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Updating.ModuleUpdater
-    public class Updater : ModuleUpdater {
+    public class Updater : ModuleUpdater
+    {
         public Updater(IObjectSpace objectSpace, Version currentDBVersion) :
-            base(objectSpace, currentDBVersion) {
+            base(objectSpace, currentDBVersion)
+        {
         }
-        public override void UpdateDatabaseAfterUpdateSchema() {
+        public override void UpdateDatabaseAfterUpdateSchema()
+        {
             base.UpdateDatabaseAfterUpdateSchema();
-           
+
             PermissionPolicyUser sampleUser = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "User"));
-            if(sampleUser == null) {
+            if (sampleUser == null)
+            {
                 sampleUser = ObjectSpace.CreateObject<PermissionPolicyUser>();
                 sampleUser.UserName = "User";
                 sampleUser.SetPassword("");
@@ -34,52 +36,60 @@ namespace VehicleAdministration.Module.DatabaseUpdate {
             sampleUser.Roles.Add(defaultRole);
 
             PermissionPolicyUser userAdmin = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Admin"));
-            if(userAdmin == null) {
+            if (userAdmin == null)
+            {
                 userAdmin = ObjectSpace.CreateObject<PermissionPolicyUser>();
                 userAdmin.UserName = "Admin";
                 // Set a password if the standard authentication type is used
                 userAdmin.SetPassword("");
             }
-			// If a role with the Administrators name doesn't exist in the database, create this role
+            // If a role with the Administrators name doesn't exist in the database, create this role
             PermissionPolicyRole adminRole = ObjectSpace.FindObject<PermissionPolicyRole>(new BinaryOperator("Name", "Administrators"));
-            if(adminRole == null) {
+            if (adminRole == null)
+            {
                 adminRole = ObjectSpace.CreateObject<PermissionPolicyRole>();
                 adminRole.Name = "Administrators";
             }
             adminRole.IsAdministrative = true;
-			userAdmin.Roles.Add(adminRole);
+            userAdmin.Roles.Add(adminRole);
 
-            CreateConfigurations(ObjectSpace, @"DatabaseUpdate\MaintenanceTypes.json");
-            CreateVehicles(ObjectSpace, @"DatabaseUpdate\Vehicles.json");
+            CreateConfigurations<MaintenanceType>(ObjectSpace, @"DatabaseUpdate\MaintenanceTypes.json");
+            CreateConfigurations<SparePartCategory>(ObjectSpace, @"DatabaseUpdate\SparePartCategories.json");
+            CreateConfigurations<Manufacturer>(ObjectSpace, @"DatabaseUpdate\Manufactures.json");
+            CreateVehicles(ObjectSpace, @"DatabaseUpdate\Vehicles.json");            
 
-            ObjectSpace.CommitChanges(); //This line persists created object(s).
+            ObjectSpace.CommitChanges();
         }
 
-
-        private void CreateConfigurations(IObjectSpace objectSpace, string jsonFileName)
+        private void CreateConfigurations<T>(IObjectSpace objectSpace, string jsonFileName)
         {
             var filePath = Path.Combine(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory), jsonFileName);
-            var json = File.ReadAllText(filePath, Encoding.GetEncoding(1252));
+            var json = File.ReadAllText(filePath);
 
-            var listOfConfigurations = JsonConvert.DeserializeObject<IList<MaintenanceType>>(json);
+            var listOfConfigurations = JsonSerializer.Deserialize<IList<T>>(json);
 
             foreach (var item in listOfConfigurations)
             {
-                var result = objectSpace.FindObject<MaintenanceType>(CriteriaOperator.Parse("Name = ?", item.Name));
+                var itemValue = item.GetType().GetProperty("Name").GetValue(item);
+                if (itemValue == null)
+                    continue;
+
+                var result = objectSpace.FindObject<T>(
+                    CriteriaOperator.Parse("Name = ?", itemValue as string));
                 if (result != null)
                     continue;
 
-                var configuration = objectSpace.CreateObject<MaintenanceType>();
-                configuration.Name = item.Name;
+                var configuration = objectSpace.CreateObject<T>();
+                configuration.GetType().GetProperty("Name").SetValue(configuration, itemValue, null);
             }
         }
 
         private void CreateVehicles(IObjectSpace objectSpace, string jsonFileName)
         {
             var filePath = Path.Combine(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory), jsonFileName);
-            var json = File.ReadAllText(filePath, Encoding.GetEncoding(1252));
+            var json = File.ReadAllText(filePath);
 
-            var listOfConfigurations = JsonConvert.DeserializeObject<IList<Vehicle>>(json);
+            var listOfConfigurations = JsonSerializer.Deserialize<IList<Vehicle>>(json);
 
             foreach (var item in listOfConfigurations)
             {
@@ -103,12 +113,15 @@ namespace VehicleAdministration.Module.DatabaseUpdate {
             }
         }
 
-        public override void UpdateDatabaseBeforeUpdateSchema() {
+        public override void UpdateDatabaseBeforeUpdateSchema()
+        {
             base.UpdateDatabaseBeforeUpdateSchema();
         }
-        private PermissionPolicyRole CreateDefaultRole() {
+        private PermissionPolicyRole CreateDefaultRole()
+        {
             PermissionPolicyRole defaultRole = ObjectSpace.FindObject<PermissionPolicyRole>(new BinaryOperator("Name", "Default"));
-            if(defaultRole == null) {
+            if (defaultRole == null)
+            {
                 defaultRole = ObjectSpace.CreateObject<PermissionPolicyRole>();
                 defaultRole.Name = "Default";
 
@@ -119,8 +132,8 @@ namespace VehicleAdministration.Module.DatabaseUpdate {
                 defaultRole.AddTypePermissionsRecursively<PermissionPolicyRole>(SecurityOperations.Read, SecurityPermissionState.Deny);
                 defaultRole.AddTypePermissionsRecursively<ModelDifference>(SecurityOperations.ReadWriteAccess, SecurityPermissionState.Allow);
                 defaultRole.AddTypePermissionsRecursively<ModelDifferenceAspect>(SecurityOperations.ReadWriteAccess, SecurityPermissionState.Allow);
-				defaultRole.AddTypePermissionsRecursively<ModelDifference>(SecurityOperations.Create, SecurityPermissionState.Allow);
-                defaultRole.AddTypePermissionsRecursively<ModelDifferenceAspect>(SecurityOperations.Create, SecurityPermissionState.Allow);                
+                defaultRole.AddTypePermissionsRecursively<ModelDifference>(SecurityOperations.Create, SecurityPermissionState.Allow);
+                defaultRole.AddTypePermissionsRecursively<ModelDifferenceAspect>(SecurityOperations.Create, SecurityPermissionState.Allow);
             }
             return defaultRole;
         }

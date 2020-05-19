@@ -5,10 +5,10 @@ using System.Text.Json.Serialization;
 
 namespace VehicleAdministration.Module.BusinessObjects
 {
-    [Table("FuelTypes")]
+    [Table("SparePartCategory")]
 
     [NavigationItem]
-    public class FuelType
+    public class SparePartCategory
     {
         [Key]
         [VisibleInDetailView(false)]

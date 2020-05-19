@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace VehicleAdministration.Module.BusinessObjects
@@ -16,6 +17,7 @@ namespace VehicleAdministration.Module.BusinessObjects
         [Key]
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
+        [JsonIgnore]
         public int Id { get; set; }
         public FuelType FuelType { get; set; }
         public decimal Costs { get; set; }

@@ -3,7 +3,7 @@
     "Name": "Achsvermessung"
   },
   {
-    "Name": "Autow‰sche"
+    "Name": "Autow√§sche"
   },
   {
     "Name": "Batterie"
@@ -22,12 +22,14 @@
   },
   {
     "Name": "Kraftstofffilter"
-  },
+  }
+  ,
   {
-    "Name": "÷lkontrolle"
-  },
+    "Name": "√ñlkontrolle"
+  }
+  ,
   {
-    "Name": "÷lwechsel"
+    "Name": "√ñlwechsel"
   },
   {
     "Name": "Reifenkontrolle"
@@ -54,7 +56,7 @@
     "Name": "Scheibenwischerwasser"
   },
   {
-    "Name": "T‹V"
+    "Name": "T√úV"
   },
   {
     "Name": "Versicherung"

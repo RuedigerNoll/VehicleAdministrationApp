@@ -1,11 +1,7 @@
 ﻿using DevExpress.ExpressApp.Data;
 using DevExpress.Persistent.Base;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace VehicleAdministration.Module.BusinessObjects
 {
@@ -15,12 +11,17 @@ namespace VehicleAdministration.Module.BusinessObjects
         [Key]
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
+        [JsonIgnore]
         public int Id { get; set; }
         
         public virtual MaintenanceType MaintenanceType { get; set; }
 
+        public virtual SparePart SparePart { get; set; }
+
         public decimal? Costs { get; set; }
 
+        [VisibleInDetailView(false)]
+        [VisibleInListView(false)]
         public virtual Maintenance Maintenance { get; set; }
     }
 }
