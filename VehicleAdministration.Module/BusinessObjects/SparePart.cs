@@ -18,6 +18,7 @@ namespace VehicleAdministration.Module.BusinessObjects
         public virtual Manufacturer Manufacturer { get; set; }
         public virtual SparePartCategory Category { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }    
+        public decimal Price { get; set; }  
+        public string PartNumber { get; set; }
     }
 }

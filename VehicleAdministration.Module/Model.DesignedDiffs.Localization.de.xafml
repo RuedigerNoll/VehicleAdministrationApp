@@ -11,6 +11,15 @@
         <Member Name="Costs" Caption="Kosten" />
       </OwnMembers>
     </Class>
+	<Class Name="VehicleAdministration.Module.BusinessObjects.SparePart"  Caption="Ersatzteil" >
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Manufacturer" Caption="Hersteller" />
+		<Member Name="Category" Caption="Kategorie" />
+		<Member Name="Price" Caption="Preis" />
+		<Member Name="PartNumber" Caption="Teilenummer" />
+      </OwnMembers>
+    </Class>
+	<Class Name="VehicleAdministration.Module.BusinessObjects.SparePartCategory"  Caption="Ersatzeilkategorie" />
     <Class Name="VehicleAdministration.Module.BusinessObjects.FuelType" Caption="Spritsorte" />
     <Class Name="VehicleAdministration.Module.BusinessObjects.Maintenance" Caption="Wartung">
       <OwnMembers>
@@ -28,6 +37,7 @@
       </OwnMembers>
     </Class>
     <Class Name="VehicleAdministration.Module.BusinessObjects.MaintenanceType" Caption="Wartungsart" />
+	<Class Name="VehicleAdministration.Module.BusinessObjects.Manufacturer" Caption="Hersteller" />
     <Class Name="VehicleAdministration.Module.BusinessObjects.Refuelling" Caption="Tankstop">
       <OwnMembers>
         <Member Name="Costs" Caption="Kosten" />

@@ -38,5 +38,38 @@
     },
     "Name": "Bremsflüssigkeit DOT4",
     "Price": 11.99
+  },
+  {
+    "Category": {
+      "Name": "Dichtungen"
+    },
+    "Manufacturer": {
+      "Name": "MV Agusta"
+    },
+    "Name": "Ventildeckeldichtung",
+    "Price": 27.83,
+    "PartNumber": "8000B4056"
+  },
+  {
+    "Category": {
+      "Name": "Dichtungen"
+    },
+    "Manufacturer": {
+      "Name": "MV Agusta"
+    },
+    "Name": "Schachtdichtung Zündkerze (Bildnummer 26)",
+    "PartNumber": "8000A1939",
+    "Price": 4.72
+  },
+  {
+    "Category": {
+      "Name": "Dichtungen"
+    },
+    "Manufacturer": {
+      "Name": "MV Agusta"
+    },
+    "Name": "Schachtdichtung Zündkerze (Bildnummer 25)",
+    "PartNumber": "8000A1938",
+    "Price": 4.72
   }
 ]

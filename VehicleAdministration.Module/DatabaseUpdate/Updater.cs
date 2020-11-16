@@ -82,6 +82,7 @@ namespace VehicleAdministration.Module.DatabaseUpdate
                     .FindObject<SparePartCategory>(CriteriaOperator.Parse("Name = ?", item.Category.Name),true);
                 configuration.Manufacturer = objectSpace
                     .FindObject<Manufacturer>(CriteriaOperator.Parse("Name = ?", item.Manufacturer.Name), true);
+                configuration.PartNumber = item.PartNumber;
             }
         }
 
