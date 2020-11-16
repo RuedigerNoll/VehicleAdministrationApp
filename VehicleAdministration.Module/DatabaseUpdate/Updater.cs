@@ -56,9 +56,33 @@ namespace VehicleAdministration.Module.DatabaseUpdate
             CreateConfigurations<MaintenanceType>(ObjectSpace, @"DatabaseUpdate\MaintenanceTypes.json");
             CreateConfigurations<SparePartCategory>(ObjectSpace, @"DatabaseUpdate\SparePartCategories.json");
             CreateConfigurations<Manufacturer>(ObjectSpace, @"DatabaseUpdate\Manufactures.json");
-            CreateVehicles(ObjectSpace, @"DatabaseUpdate\Vehicles.json");            
+            CreateVehicles(ObjectSpace, @"DatabaseUpdate\Vehicles.json");
+            CreateSpareParts(ObjectSpace, @"DatabaseUpdate\SpareParts.json");
 
             ObjectSpace.CommitChanges();
+        }
+
+        private void CreateSpareParts(IObjectSpace objectSpace, string jsonFileName)
+        {
+            var filePath = Path.Combine(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory), jsonFileName);
+            var json = File.ReadAllText(filePath);
+
+            var listOfConfigurations = JsonSerializer.Deserialize<IList<SparePart>>(json);
+
+            foreach (var item in listOfConfigurations)
+            {
+                var result = objectSpace.FindObject<SparePart>(CriteriaOperator.Parse("Name = ?", item.Name));
+                if (result != null)
+                    continue;
+
+                var configuration = objectSpace.CreateObject<SparePart>();
+                configuration.Name = item.Name;
+                configuration.Price = item.Price;
+                configuration.Category = objectSpace
+                    .FindObject<SparePartCategory>(CriteriaOperator.Parse("Name = ?", item.Category.Name),true);
+                configuration.Manufacturer = objectSpace
+                    .FindObject<Manufacturer>(CriteriaOperator.Parse("Name = ?", item.Manufacturer.Name), true);
+            }
         }
 
         private void CreateConfigurations<T>(IObjectSpace objectSpace, string jsonFileName)

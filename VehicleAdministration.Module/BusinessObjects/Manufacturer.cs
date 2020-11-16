@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace VehicleAdministration.Module.BusinessObjects
 {
-    [Table("Manufacturer")]
+    [Table("Manufacturers")]
 
     [NavigationItem]
     public class Manufacturer

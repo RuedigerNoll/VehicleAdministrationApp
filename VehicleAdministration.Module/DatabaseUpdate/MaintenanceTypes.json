@@ -9,25 +9,44 @@
     "Name": "Batterie"
   },
   {
-    "Name": "Bremsen hinten"
+    "Name": "Bremsbeläge hinten"
   },
   {
-    "Name": "Bremsen vorne"
+    "Name": "Bremsbeläge vorne"
   },
   {
-    "Name": "Frostschutz"
+    "Name": "Bremsflüssigkeit vorne"
+  },
+  {
+    "Name": "Bremsflüssigkeit hinten"
+  },
+  {
+    "Name": "Exzenter schmieren"
+  },
+  {
+    "Name": "Frostschutz/Kühlflüssigkeit"
   },
   {
     "Name": "Inspektion"
   },
   {
     "Name": "Kraftstofffilter"
-  }
-  ,
+  },
+  {
+    "Name": "Kettenaustausch"
+  },
+  {
+    "Name": "Kettenritzel vorne"
+  },
+  {
+    "Name": "Kettenrad hinten"
+  },
+  {
+    "Name": "Lüftfilter"
+  },
   {
     "Name": "Ölkontrolle"
-  }
-  ,
+  },
   {
     "Name": "Ölwechsel"
   },
@@ -62,6 +81,12 @@
     "Name": "Versicherung"
   },
   {
+    "Name": "Ventile einstellen"
+  },
+  {
     "Name": "Zulassung"
+  },
+  {
+    "Name": "Zündkerzen"
   }
 ]

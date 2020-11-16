@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace VehicleAdministration.Module.BusinessObjects
 {
-    [Table("Refuelling")]
+    [Table("Refuellings")]
 
     [NavigationItem]
     public class Refuelling

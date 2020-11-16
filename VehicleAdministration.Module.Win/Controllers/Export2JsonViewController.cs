@@ -1,6 +1,7 @@
 ﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Linq;
 using VehicleAdministration.Module.BusinessObjects;
 
@@ -39,10 +40,8 @@ namespace VehicleAdministration.Module.Win.Controllers
             if (exportType == null)
                 return;
 
-            var x = this.View.ObjectTypeInfo;
-            var list = e.SelectedObjects.OfType<Maintenance>().ToList();
-            var result = JsonSerializer.Serialize<System.Collections.Generic.IList<Maintenance>>(list);
-            System.IO.File.WriteAllText($"C:\\Temp\\{exportType.Name}", result);
+            var result = JsonSerializer.Serialize(e.SelectedObjects);
+            System.IO.File.WriteAllText($"C:\\Temp\\{exportType.Name}.JSON", result);
         }
     }
 }

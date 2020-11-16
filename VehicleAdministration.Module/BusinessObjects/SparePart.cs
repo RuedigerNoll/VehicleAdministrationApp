@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace VehicleAdministration.Module.BusinessObjects
 {
-    [Table("SparePart")]
+    [Table("SpareParts")]
 
     [NavigationItem]
     public class SparePart

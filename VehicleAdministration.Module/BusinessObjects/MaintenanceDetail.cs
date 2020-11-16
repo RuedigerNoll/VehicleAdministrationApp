@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace VehicleAdministration.Module.BusinessObjects
 {
-    [Table("MaintenanceDetail")]
+    [Table("MaintenanceDetails")]
     public class MaintenanceDetail
     {
         [Key]
@@ -20,8 +20,8 @@ namespace VehicleAdministration.Module.BusinessObjects
 
         public decimal? Costs { get; set; }
 
-        [VisibleInDetailView(false)]
-        [VisibleInListView(false)]
-        public virtual Maintenance Maintenance { get; set; }
+        //[VisibleInDetailView(false)]
+        //[VisibleInListView(false)]
+        //public virtual Maintenance Maintenance { get; set; }
     }
 }

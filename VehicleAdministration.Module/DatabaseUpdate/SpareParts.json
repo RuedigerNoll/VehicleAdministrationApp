@@ -1,0 +1,42 @@
+[
+  {
+    "Category": {
+      "Name": "Bremsen"
+    },
+    "Manufacturer": {
+      "Name": "Brembo"
+    },
+    "Name": "SUZUKI VORNE- Beläge organisch 50100200460 - 07SU19.07 - 89,7 x 52,2 x 8",
+    "Price": 37.95
+  },
+  {
+    "Category": {
+      "Name": "Bremsen"
+    },
+    "Manufacturer": {
+      "Name": "Brembo"
+    },
+    "Name": "SUZUKI HINTEN- Beläge organisch 50100200600 - 07KS05.07 - 52,2 x 52,9 x 9",
+    "Price": 33.99
+  },
+  {
+    "Category": {
+      "Name": "Bremsen"
+    },
+    "Manufacturer": {
+      "Name": "Brembo"
+    },
+    "Name": "MV VORNE- Beläge organisch 50100200950 - 07BB19.07 - 75,1 x 55,5 x 8,7",
+    "Price": 33.99
+  },
+  {
+    "Category": {
+      "Name": "Bremsen"
+    },
+    "Manufacturer": {
+      "Name": "Liqui Moly"
+    },
+    "Name": "Bremsflüssigkeit DOT4",
+    "Price": 11.99
+  }
+]

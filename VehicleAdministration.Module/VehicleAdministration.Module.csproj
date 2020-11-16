@@ -229,6 +229,9 @@
     <None Include="DatabaseUpdate\SparePartCategories.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="DatabaseUpdate\SpareParts.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="DatabaseUpdate\Vehicles.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
