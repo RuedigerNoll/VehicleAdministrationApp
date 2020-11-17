@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using System.Text.Json;
+using DevExpress.Persistent.BaseImpl.EF;
 
 namespace VehicleAdministration.Module.BusinessObjects
 {
@@ -16,6 +18,7 @@ namespace VehicleAdministration.Module.BusinessObjects
         public Maintenance()
         {
             Details = new List<MaintenanceDetail>();
+            Documents = new List<MaintenanceDetailsFileData>();
         }
 
         [Key]
@@ -36,6 +39,10 @@ namespace VehicleAdministration.Module.BusinessObjects
         public string Notice { get; set; }
         [JsonIgnore]
         public virtual Vehicle Vehicle { get; set; }
+
+        [JsonIgnore]
+        [ExpandObjectMembers(ExpandObjectMembers.Never)]   
+        public virtual IList<MaintenanceDetailsFileData> Documents { get; set; }
 
     }
 
